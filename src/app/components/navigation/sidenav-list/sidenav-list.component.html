@@ -1,21 +1,21 @@
-<a routerLink="/trining" mat-list-item (click)="onClose()">
+<a routerLink="/trining" mat-list-item (click)="onClose()" *ngIf="isAuth">
     <mat-icon>fitness_center</mat-icon>
 
     <span class="sidenav-link"> Trining </span>
 </a>
-<a routerLink="/login" mat-list-item (click)="onClose()">
+<a routerLink="/login" mat-list-item (click)="onClose()" *ngIf="!isAuth">
     <mat-icon>login</mat-icon>
 
     <span class="sidenav-link"> Login </span>
 </a>
-<a routerLink="/singup" mat-list-item (click)="onClose()">
+<a routerLink="/singup" mat-list-item (click)="onClose()" *ngIf="!isAuth">
     <mat-icon>contact_page</mat-icon>
 
     <span class="sidenav-link"> Signup </span>
 </a>
 
 
-<mat-list-item fxLayoutAlign="center center" (click)="onClose()">
+<mat-list-item fxLayoutAlign="center center" (click)="onLogout()" *ngIf="isAuth">
     <button mat-raised-button>
         Logout
     </button>

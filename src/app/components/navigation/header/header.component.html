@@ -8,15 +8,15 @@
 
     <div fxFlex fxLayout="row" fxLayoutAlign="end" fxHide.xs>
         <ul fxLayout fxLayoutGap="10px" class="nav-links">
-            <li>
+            <li *ngIf="isAuth">
                 <a routerLink="/trining" routerLinkActive="router-link-active">Trining</a>
             </li>
-            <li><a routerLink="/login">Login</a></li>
-            <li>
+            <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
+            <li *ngIf="!isAuth">
                 <a routerLink="/singup" routerLinkActive="router-link-active">Signup</a>
             </li>
             
-            <li><a >Logout</a></li>
+            <li *ngIf="isAuth"><a >Logout</a></li>
         </ul>
     </div>
 </mat-toolbar>

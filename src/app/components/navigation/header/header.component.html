@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    <button fxHide.gt-xs mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon (click)="onToggleSidenav()">menu</mat-icon>
+    </button>
+    <span routerLink="/">Logo</span>
+    <!-- <div fxFlex></div> -->
+
+    <div fxFlex fxLayout="row" fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="10px" class="nav-links">
+            <li>
+                <a routerLink="/trining" routerLinkActive="router-link-active">Trining</a>
+            </li>
+            <li><a routerLink="/login">Login</a></li>
+            <li>
+                <a routerLink="/singup" routerLinkActive="router-link-active">Signup</a>
+            </li>
+            
+            <li><a >Logout</a></li>
+        </ul>
+    </div>
+</mat-toolbar>

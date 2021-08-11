@@ -20,6 +20,7 @@ import { HeaderComponent } from './components/navigation/header/header.component
 import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
 import { StopTrainingComponent } from './components/training/current-training/stop-training.component';
 import { AuthService } from './components/auth/auth.service';
+import { TrainingService } from './components/training/training.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,9 @@ import { AuthService } from './components/auth/auth.service';
     MaterialModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    TrainingService],
   bootstrap: [AppComponent],
   
 })

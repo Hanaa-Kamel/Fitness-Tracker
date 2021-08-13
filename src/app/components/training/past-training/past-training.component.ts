@@ -1,20 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {PageEvent} from '@angular/material/paginator';
 
-import { Exercise } from '../exercise.model';
 import { TrainingService } from '../training.service';
-
+import { Exercise } from './../exercise.model';
 @Component({
   selector: 'app-past-training',
   templateUrl: './past-training.component.html',
   styleUrls: ['./past-training.component.css']
 })
-export class PastTrainingComponent implements OnInit {
-  displayedColumns = ['data' , 'name' , 'calories' , 'duration' , 'state'];
+export class PastTrainingComponent implements OnInit , OnDestroy{
+  displayedColumns = ['date' , 'name' , 'calories' , 'duration' , 'state'];
   dataSource = new MatTableDataSource<Exercise>();
   @ViewChild(MatSort) sort: MatSort;
+  private exChangedSubscription : Subscription;
  
    // MatPaginator Inputs
    length = 100;
@@ -25,7 +26,12 @@ export class PastTrainingComponent implements OnInit {
   constructor(private trainingService : TrainingService) { }
 
   ngOnInit(): void {
-    this.dataSource.data = this.trainingService.getCompletedOrCancelledExercise();
+    this.exChangedSubscription = this.trainingService.finishedExercisesChanged.subscribe(
+      (exercises : Exercise[])=>{
+        this.dataSource.data = exercises;
+      }
+    )
+    this.trainingService.fetchCompletedOrCancelledExercise();
   }
 
  
@@ -44,5 +50,9 @@ export class PastTrainingComponent implements OnInit {
     if (setPageSizeOptionsInput) {
       this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
+  }
+
+  ngOnDestroy(){
+    this.exChangedSubscription.unsubscribe();
   }
 }

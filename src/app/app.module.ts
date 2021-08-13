@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule  } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +25,16 @@ import { SidenavListComponent } from './components/navigation/sidenav-list/siden
 import { StopTrainingComponent } from './components/training/current-training/stop-training.component';
 import { AuthService } from './components/auth/auth.service';
 import { TrainingService } from './components/training/training.service';
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAAyBDB03N8L_35FZ9Hl8SkqCOM43UkCgQ",
+//   authDomain: "ng-fitness-tracker-a725f.firebaseapp.com",
+//   projectId: "ng-fitness-tracker-a725f",
+//   storageBucket: "ng-fitness-tracker-a725f.appspot.com",
+//   messagingSenderId: "295973669363",
+//   appId: "1:295973669363:web:21e5eb325c8c7ce1a72a86",
+//   measurementId: "G-L07GYLHW0W"
+// };
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +55,20 @@ import { TrainingService } from './components/training/training.service';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    BrowserModule,
+    // AngularFireModule.initializeApp({
+    //   apiKey: "AIzaSyAAyBDB03N8L_35FZ9Hl8SkqCOM43UkCgQ",
+    //   authDomain: "ng-fitness-tracker-a725f.firebaseapp.com",
+    //   projectId: "ng-fitness-tracker-a725f",
+    //   storageBucket: "ng-fitness-tracker-a725f.appspot.com",
+    //   messagingSenderId: "295973669363",
+    //   appId: "1:295973669363:web:21e5eb325c8c7ce1a72a86",
+    //   measurementId: "G-L07GYLHW0W"
+    // }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     AuthService,

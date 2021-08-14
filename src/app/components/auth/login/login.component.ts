@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 
 import { AuthService } from '../auth.service';
 
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
       })
     })
+    console.log(this.loginForm.value)
   }
 
   onSubmit()
@@ -30,7 +31,9 @@ export class LoginComponent implements OnInit {
       email : this.loginForm.value.email,
       password : this.loginForm.value.password
 
-    })
+
+    });
+    console.log('helloooooooooooo');
   }
 
 

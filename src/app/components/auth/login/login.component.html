@@ -1,39 +1,35 @@
 <section class="singin-form">
     <form 
       fxLayout="column"
-     
       fxLayoutGap ="10px"
-      #f="ngForm"
+     [formGroup]="loginForm"
       (ngSubmit)="onSubmit()"
     >
-      <mat-form-field>
-        <input
+      <mat-form-field class="form-group">
+        <input 
+        formControlName="email"
+        class="form-controll"
           type="email"
           matInput
           placeholder="Your Email"
-          ngModel
           name="email"
           email
           required
-          #emailInput="ngModel"
         />
         <mat-hint >Please Enter a vaild email. </mat-hint>
 
-        <mat-error *ngIf="!emailInput.hasError('required')"
-          >E-mal is invalid.</mat-error
-        >
+        <!-- <mat-error *ngIf="!emailInput.hasError('required')">E-mal is invalid.</mat-error > -->
       </mat-form-field>
   
-      <mat-form-field >
+      <mat-form-field  class="form-group">
         <input
+        formControlName="password"
           type="password"
           matInput
           placeholder="Your Passwerd"
-          ngModel
           name="passwerd"
           required
           minlength="6"
-          #pwInput="ngModel"
         />
         <mat-hint >Please Enter your password. </mat-hint>
       </mat-form-field>

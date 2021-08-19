@@ -1,6 +1,12 @@
 .singin-form{
-    height: 100vh;
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.mat-spinner{
+ 
+    display: flex;
+    justify-content: center;
+    
 }

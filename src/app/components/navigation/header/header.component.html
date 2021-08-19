@@ -8,15 +8,15 @@
 
     <div fxFlex fxLayout="row" fxLayoutAlign="end" fxHide.xs>
         <ul fxLayout fxLayoutGap="10px" class="nav-links">
-            <li *ngIf="isAuth">
+            <li *ngIf="(isAuth$ | async)">
                 <a routerLink="/trining" routerLinkActive="router-link-active">Trining</a>
             </li>
-            <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
-            <li *ngIf="!isAuth">
+            <li *ngIf="!(isAuth$ | async )"><a routerLink="/login">Login</a></li>
+            <li *ngIf="!(isAuth$ | async)">
                 <a routerLink="/singup" routerLinkActive="router-link-active">Signup</a>
             </li>
             
-            <li *ngIf="isAuth"><a style="cursor: pointer;" (click)="onLogout()" >Logout</a></li>
+            <li *ngIf="(isAuth$ | async)"><a style="cursor: pointer;" (click)="onLogout()" >Logout</a></li>
         </ul>
     </div>
 </mat-toolbar>

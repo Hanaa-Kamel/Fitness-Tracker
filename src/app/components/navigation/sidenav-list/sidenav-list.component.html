@@ -1,21 +1,21 @@
-<a routerLink="/trining" mat-list-item (click)="onClose()" *ngIf="isAuth">
+<a routerLink="/trining" mat-list-item (click)="onClose()" *ngIf="(isAuth$ | async)">
     <mat-icon>fitness_center</mat-icon>
 
     <span class="sidenav-link"> Trining </span>
 </a>
-<a routerLink="/login" mat-list-item (click)="onClose()" *ngIf="!isAuth">
+<a routerLink="/login" mat-list-item (click)="onClose()" *ngIf="!(isAuth$ | async)">
     <mat-icon>login</mat-icon>
 
     <span class="sidenav-link"> Login </span>
 </a>
-<a routerLink="/singup" mat-list-item (click)="onClose()" *ngIf="!isAuth">
+<a routerLink="/singup" mat-list-item (click)="onClose()" *ngIf="!(isAuth$ | async)">
     <mat-icon>contact_page</mat-icon>
 
     <span class="sidenav-link"> Signup </span>
 </a>
 
 
-<mat-list-item fxLayoutAlign="center center" (click)="onLogout()" *ngIf="isAuth">
+<mat-list-item fxLayoutAlign="center center" (click)="onLogout()" *ngIf="(isAuth$ | async)">
     <button mat-raised-button>
         Logout
     </button>

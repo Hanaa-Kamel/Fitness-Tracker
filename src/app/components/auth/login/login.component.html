@@ -1,4 +1,4 @@
-<section class="singin-form">
+<section  class="singin-form">
     <form 
       fxLayout="column"
       fxLayoutGap ="10px"
@@ -17,8 +17,6 @@
           required
         />
         <mat-hint >Please Enter a vaild email. </mat-hint>
-
-        <!-- <mat-error *ngIf="!emailInput.hasError('required')">E-mal is invalid.</mat-error > -->
       </mat-form-field>
   
       <mat-form-field  class="form-group">
@@ -34,11 +32,8 @@
         <mat-hint >Please Enter your password. </mat-hint>
       </mat-form-field>
   
-  
-  
-  
-  
-      <button mat-raised-button color="primary">Submit</button>
+      <button *ngIf="!(isLoading$ | async)" mat-raised-button color="primary">Submit</button>
+      <mat-spinner *ngIf="(isLoading$ | async )"  ></mat-spinner>
     </form>
   </section>
   

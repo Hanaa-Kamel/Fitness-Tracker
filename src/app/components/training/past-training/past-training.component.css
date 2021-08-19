@@ -1,5 +1,7 @@
 table {
     width: 100%;
+    padding: 2rem;
+  
   }
 
   th.mat-sort-header-sorted {

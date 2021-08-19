@@ -1,7 +1,7 @@
 <section  class="singin-form">
     <form 
       fxLayout="column"
-      fxLayoutGap ="10px"
+      fxLayoutGap ="15px"
      [formGroup]="loginForm"
       (ngSubmit)="onSubmit()"
     >
@@ -34,6 +34,7 @@
   
       <button *ngIf="!(isLoading$ | async)" mat-raised-button color="primary">Submit</button>
       <mat-spinner *ngIf="(isLoading$ | async )"  ></mat-spinner>
+      
     </form>
   </section>
   

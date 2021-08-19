@@ -19,7 +19,7 @@ export class PastTrainingComponent implements OnInit {
   private exChangedSubscription : Subscription;
  
    // MatPaginator Inputs
-   length = 100;
+   length = 5;
    pageSize = 10;
    pageSizeOptions: number[] = [1,5, 10, 25, 100];
    // MatPaginator Output

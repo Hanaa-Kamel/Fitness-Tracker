@@ -12,8 +12,9 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$fitness-tracker-primary: mat.define-palette(mat.$indigo-palette);
-$fitness-tracker-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// $fitness-tracker-primary: mat.define-palette(mat.$indigo-palette);
+$fitness-tracker-primary: mat.define-palette(mat.$pink-palette);
+$fitness-tracker-accent: mat.define-palette(mat.$pink-palette, A600, A700, A800);
 
 // The warn palette is optional (defaults to red).
 $fitness-tracker-warn: mat.define-palette(mat.$red-palette);
@@ -23,7 +24,7 @@ $fitness-tracker-warn: mat.define-palette(mat.$red-palette);
 $fitness-tracker-theme: mat.define-light-theme((
   color: (
     primary: $fitness-tracker-primary,
-    accent: $fitness-tracker-accent,
+    accent: $fitness-tracker-accent,    
     warn: $fitness-tracker-warn,
   )
 ));

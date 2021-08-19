@@ -2,6 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
 
+-----------------------------------------------------------------------------------
+
+Angular Fitness Tracker App
+
+It features users sign up where we specify e-mail , password and our birthdatd feature by a data picker to the terms and conditions , and then we can log in and start exercises we choose from a set of exercises that's actually fetched from the server we can cancle if we want and of course view all the past exercises and we can even felter and sort these .
+
+Behind the scenes I'm using :
+
+-Angular Material
+-Angular Fire 
+-Firebase
+-Ngrx
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

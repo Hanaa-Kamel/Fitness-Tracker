@@ -1,3 +1,4 @@
+import { TrianingModule } from './components/training/training.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -6,40 +7,33 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule  } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { StoreModule } from '@ngrx/store';
 
-import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AuthModule } from './components/auth/auth.module';
 
-import { SingupComponent } from './components/auth/singup/singup.component';
-import { LoginComponent } from './components/auth/login/login.component';
-import { TrainingComponent } from './components/training/training.component';
-import { CurrentTrainingComponent } from './components/training/current-training/current-training.component';
-import { NewTrainingComponent } from './components/training/new-training/new-training.component';
-import { PastTrainingComponent } from './components/training/past-training/past-training.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
-import { StopTrainingComponent } from './components/training/current-training/stop-training.component';
 import { AuthService } from './components/auth/auth.service';
 import { TrainingService } from './components/training/training.service';
+import { UIService } from './components/shared/ui.service';
+import { SharedModule } from './components/shared/shared.module';
+import { reducers } from './app.reducer';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SingupComponent,
-    LoginComponent,
-    TrainingComponent,
-    CurrentTrainingComponent,
-    NewTrainingComponent,
-    PastTrainingComponent,
     WelcomeComponent,
     HeaderComponent,
     SidenavListComponent,
-    StopTrainingComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -47,17 +41,19 @@ import { TrainingService } from './components/training/training.service';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    FormsModule,
     BrowserModule,
-    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AuthModule,
+    SharedModule,
+    TrianingModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [
     AuthService,
-    TrainingService],
+    TrainingService,
+    UIService],
   bootstrap: [AppComponent],
   
 })
